@@ -47,11 +47,11 @@ function checkGuess() {
   if (userGuess === currentMovie.name.toLowerCase()) {
     movieImage.style.boxShadow = "-1px 1px 25px 14px #52ffa880";
     movieImage.style.outline = "3px solid #52ffa9";
-    showResultModal("🎉 Correct! See you tomorrow!", true);
+    showResultModal("🎉 Correct! See you soon!", true);
   } else {
     movieImage.style.boxShadow = "-1px 1px 25px 16px #a20927";
     movieImage.style.outline = "3px solid #a20927";
-    showResultModal("❌ Wrong guess! Try again tomorrow!", false);
+    showResultModal("❌ Wrong guess! Better luck next time!", false);
   }
 }
 
