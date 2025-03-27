@@ -26,6 +26,13 @@ function preloadImages() {
   });
 }
 
+function shuffleMovies() {
+  for (let i = movies.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [movies[i], movies[j]] = [movies[j], movies[i]];
+  }
+}
+
 function startGame() {
   score = 0;
   updateScore();
@@ -33,51 +40,41 @@ function startGame() {
   getNextMovie();
 }
 
-//! Function to get a random movie
-function getNextMovie() {
-  const currentMovie = movies[currentMovieIndex];
-  movieImage.src = currentMovie.image;
-}
-
-//! Function to check the user's guess
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
-  const currentMovie = movies[currentMovieIndex];
+  const currentMovie = movies[getCurrentDayIndex()];
 
   if (userGuess === currentMovie.name.toLowerCase()) {
     movieImage.style.boxShadow = "-1px 1px 25px 14px #52ffa880";
     movieImage.style.outline = "3px solid #52ffa9";
-
-    setTimeout(() => {
-      score++;
-      updateScore();
-      currentMovieIndex++;
-      guessInput.value = "";
-      resetStyles();
-      scoreBoard.classList.add("animation");
-
-      if (score < movies.length) {
-        getNextMovie();
-      } else {
-        showWinGameModal();
-      }
-    }, 800);
-  } else if (userGuess === "") {
-    if (!warningShown) {
-      showWarningMessage();
-      warningShown = true;
-    }
+    showResultModal("🎉 Correct! See you tomorrow!", true);
   } else {
     movieImage.style.boxShadow = "-1px 1px 25px 16px #a20927";
     movieImage.style.outline = "3px solid #a20927";
-    scoreBoard.classList.remove("animation");
-
-    if (!warningShown) {
-      currentMovieIndex++;
-    }
-    showGameOverModal();
+    showResultModal("❌ Wrong guess! Try again tomorrow!", false);
   }
 }
+
+//! Function to show result modal and end game
+function showResultModal(message, won) {
+  modalContent.innerHTML = `
+    <p class="message">${message}</p>
+    <button class="btn" onclick="closeModal()">Close</button>
+  `;
+  modal.style.display = "flex";
+}
+
+function getCurrentDayIndex() {
+  const today = new Date();
+  return today.getDate() % movies.length; // Cycles through movies each day
+}
+
+//! Function to get the daily movie
+function getNextMovie() {
+  const currentMovie = movies[getCurrentDayIndex()];
+  movieImage.src = currentMovie.image;
+}
+
 
 //! Function to update the score display
 function updateScore() {
@@ -176,4 +173,7 @@ guessInput.addEventListener("keyup", (e) => {
 });
 
 //! Start the game when the page loads
-window.onload = startGame;
+window.onload = function () {
+  shuffleMovies();
+  getNextMovie();
+};
