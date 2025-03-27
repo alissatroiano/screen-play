@@ -59,17 +59,27 @@ Devvit.addCustomPostType({
         }
       },
       onUnmount() {
-        context.ui.showToast('Web view closed!');
+        context.ui.showToast('Come Back Soon!');
       },
     });
 
-    // Render the custom post type
   // Render the custom post type
   return (
     <vstack grow padding="small">
-      <vstack grow alignment="middle center">
-        <text size="xlarge" weight="bold">
-Screen Snaps        </text>
+       <hstack>
+          <image
+            url="logo.png"
+            description="logo"
+            imageHeight={256}
+            imageWidth={256}
+            height="250px"
+            width="250px"
+          />
+          </hstack>
+          <spacer />
+                <text size="xlarge" weight="bold">
+Screen Snaps       
+</text>
         <spacer />
         <vstack alignment="start middle">
           <hstack>
@@ -90,7 +100,6 @@ Screen Snaps        </text>
         <spacer />
         <button onPress={() => webView.mount()}>Reveal Movie Scene</button>
       </vstack>
-    </vstack>
   );
 },
 });

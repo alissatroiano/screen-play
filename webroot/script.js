@@ -127,7 +127,6 @@ function showGameOverModal() {
 function showWinGameModal() {
   modalContent.innerHTML = `
     <p class="message">You won the game! 🎉</p>
-    <p>Total Score: ${score}</p>
   `;
 
   modal.style.display = "flex";
@@ -173,6 +172,10 @@ document.addEventListener("keyup", function (e) {
     checkGuess();
   }
 });
+
+// attach checkGuess function to guessBtn
+const guessBtn = document.getElementById("checkGuess");
+guessBtn.addEventListener("click", checkGuess);
 
 //! Function to focus on input
 function focusOnInput() {

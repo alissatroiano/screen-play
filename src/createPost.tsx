@@ -2,11 +2,12 @@ import { Devvit } from '@devvit/public-api';
 
 // Adds a new menu item to the subreddit allowing to create a new post
 Devvit.addMenuItem({
-  label: 'Screen Snaps: Movie Scene Guessing Game',
+  label: 'Screen Play',
   location: 'subreddit',
   onPress: async (_event, context) => {
     const { reddit, ui } = context;
     const subreddit = await reddit.getCurrentSubreddit();
+    
     const post = await reddit.submitPost({
       title: 'Screen Snaps',
       subredditName: subreddit.name,

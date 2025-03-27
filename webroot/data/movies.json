@@ -2,22 +2,6 @@
     {
       "name": "Pulp Fiction",
       "image": "../assets/pulp-fiction-1.png"
-    },
-    {
-      "name": "Trainspotting",
-      "image": "../assets/trainspotting.png"
-    },
-    {
-      "name": "Halloween",
-      "image": "../assets/halloween.jpg"
-    },
-    {
-      "name": "Children of Men",
-      "image": "../assets/Children-of-Men.jpg"
-    },
-    {
-      "name": "The Dark Knight",
-      "image": "../assets/the-dark-knight.jpg"
     }
   ]
   
