@@ -10,7 +10,7 @@ Devvit.configure({
 
 // Add a custom post type to Devvit
 Devvit.addCustomPostType({
-  name: 'Web View Example',
+  name: 'Can You Guess What Movie This is From?',
   height: 'tall',
   render: (context) => {
     // Load username with `useAsync` hook
@@ -64,19 +64,42 @@ Devvit.addCustomPostType({
     });
 
     // Render the custom post type
-    return (
-      <vstack grow padding="large">
-        <vstack grow alignment="center center">
-          <vstack alignment="start middle">
-            <hstack>
-            <image url="trainspotting.png" imageWidth={600} imageHeight={600} />
+  // Render the custom post type
+  return (
+    <vstack grow padding="small">
+      <vstack grow alignment="middle center">
+        <text size="xlarge" weight="bold">
+          Screen Snaps
+        </text>
+        <spacer />
+        <vstack alignment="start middle">
+          <hstack>
+            <text size="medium">Hey, </text>
+            <text size="medium" weight="bold">
+              {' '}
+              {username ?? ''}
+            </text>
             </hstack>
-          </vstack>
+            <spacer />
+            <hstack>
+         <text size="small">How well do you know movies?</text>
+          </hstack>
           <spacer />
+          <spacer />
+
+          <hstack>
+          <text size="small" weight="bold">
+              {' '}
+              {counter ?? ''}
+            </text>
+          </hstack>
         </vstack>
+        <spacer />
+        <button onPress={() => webView.mount()}>Launch App</button>
       </vstack>
-    );
-  },
+    </vstack>
+  );
+},
 });
 
 export default Devvit;

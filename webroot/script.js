@@ -5,32 +5,13 @@ class App {
   constructor() {
     // Get references to the HTML elements
     this.output = /** @type {HTMLPreElement} */ (document.querySelector('#messageOutput'));
-    this.increaseButton = /** @type {HTMLButtonElement} */ (
-      document.querySelector('#btn-increase')
-    );
-    this.decreaseButton = /** @type {HTMLButtonElement} */ (
-      document.querySelector('#btn-decrease')
-    );
     this.usernameLabel = /** @type {HTMLSpanElement} */ (document.querySelector('#username'));
-    this.counterLabel = /** @type {HTMLSpanElement} */ (document.querySelector('#counter'));
-    this.counter = 0;
-
-    // When the Devvit app sends a message with `postMessage()`, this will be triggered
-    addEventListener('message', this.#onMessage);
-
-    // This event gets called when the web view is loaded
-    addEventListener('load', () => {
-      postWebViewMessage({ type: 'webViewReady' });
-    });
-
-    this.increaseButton.addEventListener('click', () => {
+    this.scoreLabel = /** @type {HTMLSpanElement} */ (document.querySelector('#score'));
+    this.scoreBtn = /** @type {HTMLButtonElement} */ (document.querySelector('#guessBtn'));
+  
+    this.scoreBtn.addEventListener('click', () => {
       // Sends a message to the Devvit app
-      postWebViewMessage({ type: 'setCounter', data: { newCounter: this.counter + 1 } });
-    });
-
-    this.decreaseButton.addEventListener('click', () => {
-      // Sends a message to the Devvit app
-      postWebViewMessage({ type: 'setCounter', data: { newCounter: this.counter - 1 } });
+      postWebViewMessage({ type: 'setScore', data: { newScore: this.score + 1 } });
     });
   }
 
@@ -49,16 +30,16 @@ class App {
     switch (message.type) {
       case 'initialData': {
         // Load initial data
-        const { username, currentCounter } = message.data;
+        const { username, currentScore } = message.data;
         this.usernameLabel.innerText = username;
-        this.counter = currentCounter;
-        this.counterLabel.innerText = `${this.counter}`;
+        this.score = currentScore;
+        this.scoreLabel.innerText = `${this.score}`;
         break;
       }
-      case 'updateCounter': {
-        const { currentCounter } = message.data;
-        this.counter = currentCounter;
-        this.counterLabel.innerText = `${this.counter}`;
+      case 'updateScore': {
+        const { currentScore } = message.data;
+        this.score = currentScore;
+        this.scoreLabel.innerText = `${this.score}`;
         break;
       }
       default:
