@@ -117,7 +117,7 @@ function showGameOverModal() {
   modalContent.innerHTML = `
     <p class="message">Game Over! 😔</p>
     <p>The correct answer was: <strong>${movies[getCurrentDayIndex()].name}</strong></p>
-    <button class="btn" onclick="closeModal()">Try Again</button>
+  
   `;
   modal.style.display = "flex";
   document.addEventListener("keyup", closeModalOnEnter);
