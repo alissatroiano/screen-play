@@ -20,11 +20,20 @@ let currentMovieIndex;
 let warningShown = false;
 
 //! Shuffle the movies array (Fisher-Yates shuffle)
+// function shuffleMovies() {
+//   for (let i = movies.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [movies[i], movies[j]] = [movies[j], movies[i]];
+//   }
+// }
+
+// Display a different movie image each session
 function shuffleMovies() {
-  for (let i = movies.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [movies[i], movies[j]] = [movies[j], movies[i]];
-  }
+  const today = new Date();
+  const dayIndex = today.getDate() % movies.length;
+  const shuffledMovies = [...movies];
+  [shuffledMovies[0], shuffledMovies[dayIndex]] = [shuffledMovies[dayIndex], shuffledMovies[0]];
+  return shuffledMovies;
 }
 
 function preloadImages() {
