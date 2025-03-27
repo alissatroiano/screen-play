@@ -2,19 +2,19 @@ import { Devvit } from '@devvit/public-api';
 
 // Adds a new menu item to the subreddit allowing to create a new post
 Devvit.addMenuItem({
-  label: 'Guess the movie',
+  label: 'Screen Snaps: Movie Scene Guessing Game',
   location: 'subreddit',
   onPress: async (_event, context) => {
     const { reddit, ui } = context;
     const subreddit = await reddit.getCurrentSubreddit();
     const post = await reddit.submitPost({
-      title: 'Web View Example',
+      title: 'Screen Snaps',
       subredditName: subreddit.name,
       // The preview appears while the post loads
       preview: (
         <vstack height="100%" width="100%" alignment="middle center">
           <hstack>
-            <h1>Loading</h1>
+            <text>Loading...</text>
           </hstack>
         </vstack>
       ),

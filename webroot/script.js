@@ -1,21 +1,4 @@
-/** @typedef {import('../src/message.ts').DevvitSystemMessage} DevvitSystemMessage */
-/** @typedef {import('../src/message.ts').WebViewMessage} WebViewMessage */
-
-class App {
-  constructor() {
-    // Get references to the HTML elements
-    this.output = /** @type {HTMLPreElement} */ (document.querySelector('#messageOutput'));
-    this.usernameLabel = /** @type {HTMLSpanElement} */ (document.querySelector('#username'));
-    this.scoreLabel = /** @type {HTMLSpanElement} */ (document.querySelector('#score'));
-    this.scoreBtn = /** @type {HTMLButtonElement} */ (document.querySelector('#guessBtn'));
-  
-    this.scoreBtn.addEventListener('click', () => {
-      // Sends a message to the Devvit app
-      postWebViewMessage({ type: 'setScore', data: { newScore: this.score + 1 } });
-    });
-  }
-
-  const modal = document.getElementById("gameOverModal");
+const modal = document.getElementById("gameOverModal");
 const guessInput = document.getElementById("guessInput");
 const scoreBoard = document.getElementById("scoreBoard");
 const movieImage = document.getElementById("movieImage");
@@ -26,13 +9,13 @@ const movies = [
   },
   { name: "Trainspotting", image: "../assets/trainspotting.png"
   },
-   { name: "Halloween", image: "../assets/halloween.jpg"
+   { name: "halloween", image: "../assets/halloween.jpg"
    },
-    { name : 'Children of Men', image: "../assets/children-of-men.jpg"},
+    { name : 'Children of Men', image: "../assets/Children-of-Men.jpg"},
     { name: 'The Dark Knight', image: "../assets/the-dark-knight.jpg"}
 ];
 
-let score;
+let score: number;
 let currentMovieIndex;
 let warningShown = false;
 
@@ -43,6 +26,13 @@ function preloadImages() {
   });
 }
 
+function shuffleMovies() {
+  for (let i = movies.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [movies[i], movies[j]] = [movies[j], movies[i]];
+  }
+}
+
 function startGame() {
   score = 0;
   updateScore();
@@ -50,51 +40,43 @@ function startGame() {
   getNextMovie();
 }
 
-//! Function to get a random movie
+//! Function to get the daily movie
 function getNextMovie() {
-  const currentMovie = movies[currentMovieIndex];
+  const currentMovie = movies[getCurrentDayIndex()];
   movieImage.src = currentMovie.image;
 }
 
-//! Function to check the user's guess
+//! Function to check the user's guess and end the game
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
-  const currentMovie = movies[currentMovieIndex];
+  const currentMovie = movies[getCurrentDayIndex()];
 
   if (userGuess === currentMovie.name.toLowerCase()) {
     movieImage.style.boxShadow = "-1px 1px 25px 14px #52ffa880";
     movieImage.style.outline = "3px solid #52ffa9";
-
-    setTimeout(() => {
-      score++;
-      updateScore();
-      currentMovieIndex++;
-      guessInput.value = "";
-      resetStyles();
-      scoreBoard.classList.add("animation");
-
-      if (score < movies.length) {
-        getNextMovie();
-      } else {
-        showWinGameModal();
-      }
-    }, 800);
-  } else if (userGuess === "") {
-    if (!warningShown) {
-      showWarningMessage();
-      warningShown = true;
-    }
+    showResultModal("🎉 Correct! See you tomorrow!", true);
   } else {
     movieImage.style.boxShadow = "-1px 1px 25px 16px #a20927";
     movieImage.style.outline = "3px solid #a20927";
-    scoreBoard.classList.remove("animation");
-
-    if (!warningShown) {
-      currentMovieIndex++;
-    }
-    showGameOverModal();
+    showResultModal("❌ Wrong guess! Try again tomorrow!", false);
   }
 }
+
+//! Function to show result modal and end game
+function showResultModal(message, won) {
+  modalContent.innerHTML = `
+    <p class="message">${message}</p>
+    <button class="btn" onclick="closeModal()">Close</button>
+  `;
+  modal.style.display = "flex";
+}
+
+//! Function to get today's movie index
+function getCurrentDayIndex() {
+  const today = new Date();
+  return today.getDate() % movies.length; // Cycles through movies each day
+}
+
 
 //! Function to update the score display
 function updateScore() {
@@ -116,6 +98,8 @@ function showWarningMessage() {
 function showGameOverModal() {
   modalContent.innerHTML = `
     <p class="message">Game Over! 😔</p>
+    <p>Total Score: ${score}</p>
+    <button class="btn" onclick="closeModal()">Close</button>
   `;
 
   modal.style.display = "flex";
@@ -191,50 +175,7 @@ guessInput.addEventListener("keyup", (e) => {
 });
 
 //! Start the game when the page loads
-window.onload = startGame;
-
-  /**
-   * @arg {MessageEvent<DevvitSystemMessage>} ev
-   * @return {void}
-   */
-  #onMessage = (ev) => {
-    // Reserved type for messages sent via `context.ui.webView.postMessage`
-    if (ev.data.type !== 'devvit-message') return;
-    const { message } = ev.data.data;
-
-    // Always output full message
-    this.output.replaceChildren(JSON.stringify(message, undefined, 2));
-
-    switch (message.type) {
-      case 'initialData': {
-        // Load initial data
-        const { username, currentScore } = message.data;
-        this.usernameLabel.innerText = username;
-        this.score = currentScore;
-        this.scoreLabel.innerText = `${this.score}`;
-        break;
-      }
-      case 'updateScore': {
-        const { currentScore } = message.data;
-        this.score = currentScore;
-        this.scoreLabel.innerText = `${this.score}`;
-        break;
-      }
-      default:
-        /** to-do: @satisifes {never} */
-        const _ = message;
-        break;
-    }
-  };
-}
-
-/**
- * Sends a message to the Devvit app.
- * @arg {WebViewMessage} msg
- * @return {void}
- */
-function postWebViewMessage(msg) {
-  parent.postMessage(msg, '*');
-}
-
-new App();
+window.onload = function () {
+  shuffleMovies();
+  getNextMovie();
+};

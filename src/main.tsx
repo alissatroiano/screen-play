@@ -69,33 +69,26 @@ Devvit.addCustomPostType({
     <vstack grow padding="small">
       <vstack grow alignment="middle center">
         <text size="xlarge" weight="bold">
-          Screen Snaps
-        </text>
+Screen Snaps        </text>
         <spacer />
         <vstack alignment="start middle">
           <hstack>
             <text size="medium">Hey, </text>
+            <spacer />
             <text size="medium" weight="bold">
               {' '}
               {username ?? ''}
             </text>
             </hstack>
             <spacer />
-            <hstack>
+            <spacer />
+<hstack>
          <text size="small">How well do you know movies?</text>
           </hstack>
-          <spacer />
-          <spacer />
-
-          <hstack>
-          <text size="small" weight="bold">
-              {' '}
-              {counter ?? ''}
-            </text>
-          </hstack>
+        <spacer />
         </vstack>
         <spacer />
-        <button onPress={() => webView.mount()}>Launch App</button>
+        <button onPress={() => webView.mount()}>Reveal Movie Scene</button>
       </vstack>
     </vstack>
   );
