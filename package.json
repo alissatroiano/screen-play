@@ -18,5 +18,9 @@
   "devDependencies": {
     "typescript": "5.3.2",
     "vite": "^6.2.3"
+  },
+    "compilerOptions": {
+      "lib": ["dom", "esnext"]
+    }
   }
-}
+

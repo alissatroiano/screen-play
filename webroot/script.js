@@ -4,20 +4,26 @@ const scoreBoard = document.getElementById("scoreBoard");
 const movieImage = document.getElementById("movieImage");
 const modalContent = document.querySelector(".modal-content");
 
-const movies = [
-  { name: "Pulp Fiction", image: "../assets/pulp-fiction-1.png"
-  },
-  { name: "Trainspotting", image: "../assets/trainspotting.png"
-  },
-   { name: "halloween", image: "../assets/halloween.jpg"
-   },
-    { name : 'Children of Men', image: "../assets/Children-of-Men.jpg"},
-    { name: 'The Dark Knight', image: "../assets/the-dark-knight.jpg"}
-];
 
-let score: number;
+/**
+ * @type {{ name: string; image: string; }[]}
+ */
+let movies = [];
+
+fetch("movies.json")
+  .then((response) => response.json())
+  .then((data) => {
+    movies = data;
+    shuffleMovies();
+    getNextMovie();
+  })
+  .catch((error) => console.error("Error loading movies:", error));
+
+
+let score;
 let currentMovieIndex;
 let warningShown = false;
+
 
 function preloadImages() {
   movies.forEach((movie) => {
@@ -25,6 +31,7 @@ function preloadImages() {
     img.src = movie.image;
   });
 }
+
 
 function shuffleMovies() {
   for (let i = movies.length - 1; i > 0; i--) {
@@ -46,19 +53,33 @@ function getNextMovie() {
   movieImage.src = currentMovie.image;
 }
 
-//! Function to check the user's guess and end the game
+let remainingGuesses = 3; // Initialize remaining guesses
+
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
   const currentMovie = movies[getCurrentDayIndex()];
 
+  if (!userGuess) {
+    showWarningMessage();
+    return;
+  }
+
   if (userGuess === currentMovie.name.toLowerCase()) {
     movieImage.style.boxShadow = "-1px 1px 25px 14px #52ffa880";
     movieImage.style.outline = "3px solid #52ffa9";
-    showResultModal("🎉 Correct! See you tomorrow!", true);
+    showResultModal("🎉 Correct! See you soon!", true);
+    remainingGuesses = 3; // Reset for the next round
   } else {
-    movieImage.style.boxShadow = "-1px 1px 25px 16px #a20927";
-    movieImage.style.outline = "3px solid #a20927";
-    showResultModal("❌ Wrong guess! Try again tomorrow!", false);
+    remainingGuesses--;
+
+    if (remainingGuesses > 0) {
+      movieImage.style.boxShadow = "-1px 1px 25px 16px #a20927";
+      movieImage.style.outline = "3px solid #a20927";
+      showResultModal(`❌ Wrong! ${remainingGuesses} guesses left!`, false);
+    } else {
+      showGameOverModal();
+      remainingGuesses = 3; // Reset for next game
+    }
   }
 }
 
@@ -66,9 +87,7 @@ function checkGuess() {
 function showResultModal(message, won) {
   modalContent.innerHTML = `
     <p class="message">${message}</p>
-    <button class="btn" onclick="closeModal()">Close</button>
   `;
-  modal.style.display = "flex";
 }
 
 //! Function to get today's movie index
@@ -87,7 +106,6 @@ function updateScore() {
 function showWarningMessage() {
   modalContent.innerHTML = `
     <p class="message">Please enter a movie name! 👀</p>
-    <button class="btn" onclick="closeModal()">Close</button>
   `;
 
   modal.style.display = "flex";
@@ -98,10 +116,9 @@ function showWarningMessage() {
 function showGameOverModal() {
   modalContent.innerHTML = `
     <p class="message">Game Over! 😔</p>
-    <p>Total Score: ${score}</p>
-    <button class="btn" onclick="closeModal()">Close</button>
+    <p>The correct answer was: <strong>${movies[getCurrentDayIndex()].name}</strong></p>
+    <button class="btn" onclick="closeModal()">Try Again</button>
   `;
-
   modal.style.display = "flex";
   document.addEventListener("keyup", closeModalOnEnter);
 }
@@ -111,7 +128,6 @@ function showWinGameModal() {
   modalContent.innerHTML = `
     <p class="message">You won the game! 🎉</p>
     <p>Total Score: ${score}</p>
-    <button class="btn" onclick="closeModal()">Close</button>
   `;
 
   modal.style.display = "flex";

@@ -4,16 +4,20 @@ const scoreBoard = document.getElementById("scoreBoard");
 const movieImage = document.getElementById("movieImage");
 const modalContent = document.querySelector(".modal-content");
 
-const movies = [
-  { name: "Pulp Fiction", image: "../assets/pulp-fiction-1.png"
-  },
-  { name: "Trainspotting", image: "../assets/trainspotting.png"
-  },
-   { name: "Halloween", image: "../assets/halloween.jpg"
-   },
-    { name : 'Children of Men', image: "../assets/children-of-men.jpg"},
-    { name: 'The Dark Knight', image: "../assets/the-dark-knight.jpg"}
-];
+/**
+ * @type {{ name: string; image: string; }[]}
+ */
+let movies = [];
+
+fetch("movies.json")
+  .then((response) => response.json())
+  .then((data) => {
+    movies = data;
+    shuffleMovies();
+    getNextMovie();
+  })
+  .catch((error) => console.error("Error loading movies:", error));
+
 
 let score;
 let currentMovieIndex;
