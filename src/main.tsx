@@ -84,7 +84,7 @@ Devvit.addCustomPostType({
           </hstack>
           <spacer />
           <text size="xlarge" weight="bold">
-            Screen Play
+            Screen Snaps
           </text>
           <spacer />
           <vstack alignment="center">
