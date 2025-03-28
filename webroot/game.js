@@ -4,7 +4,6 @@ const scoreBoard = document.getElementById("scoreBoard");
 const movieImage = document.getElementById("movieImage");
 const modalContent = document.querySelector(".modal-content");
 
-
 /**
  * @type {{ name: string; image: string; }[]}
  */

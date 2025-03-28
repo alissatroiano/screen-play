@@ -60,7 +60,7 @@ Devvit.addCustomPostType({
         }
       },
       onUnmount() {
-        context.ui.showToast('Come Back Soon!');
+        context.ui.showToast('See ya! Come back for a new challenge tomorrow');
       },
     });
 
@@ -84,7 +84,7 @@ Devvit.addCustomPostType({
           </hstack>
           <spacer />
           <text size="xlarge" weight="bold">
-            Screen Snaps
+            Screen Play
           </text>
           <spacer />
           <vstack alignment="center">

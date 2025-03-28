@@ -2,7 +2,8 @@
 
 :root {
   --light-clr: rgb(254, 254, 254);
-  --primary-clr: rgb(103, 63, 215);
+  --primary-clr: rgb(133, 88, 255);
+  --secondary-clr: rgb(103, 63, 215);
   --transparent-primary-clr: rgba(103, 63, 215, 0.4);
 }
 
@@ -42,7 +43,6 @@ body {
 }
 
 .game-container h1 {
-  font-size: clamp(1.3rem, 5vw, 2.5rem);
   color: var(--primary-clr);
   line-height: 1.2;
   background-clip: text;
@@ -55,6 +55,12 @@ body {
   100% {
     background-position: 100% 0;
   }
+}
+
+p.subtitle {
+  color: var(--light-clr);
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 #score {
@@ -72,7 +78,11 @@ body {
 
 h1 {
   color: var(--primary-clr);
+  font-size: clamp(1.3rem, 5vw, 2.5rem);
+  text-transform: uppercase;
+  font-weight: 500;
 }
+
 #movieImage {
   max-width: 100%;
   min-height: 50vh;
