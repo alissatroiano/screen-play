@@ -4,7 +4,6 @@ const scoreBoard = document.getElementById("scoreBoard");
 const movieImage = document.getElementById("movieImage");
 const modalContent = document.querySelector(".modal-content");
 
-
 /**
  * @type {{ name: string; image: string; }[]}
  */
@@ -13,12 +12,11 @@ let movies = [];
 fetch("movies.json")
   .then((response) => response.json())
   .then((data) => {
+    console.log("Loaded movies:", data);
     movies = data;
-    shuffleMovies();
     getNextMovie();
   })
   .catch((error) => console.error("Error loading movies:", error));
-
 
 let score;
 let currentMovieIndex;
@@ -32,13 +30,13 @@ function preloadImages() {
   });
 }
 
-
-function shuffleMovies() {
-  for (let i = movies.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [movies[i], movies[j]] = [movies[j], movies[i]];
-  }
-}
+// function shuffleMovies() {
+//   const today = new Date();
+//   const dayIndex = today.getDate() % movies.length;
+//   const shuffledMovies = [...movies];
+//   [shuffledMovies[0], shuffledMovies[dayIndex]] = [shuffledMovies[dayIndex], shuffledMovies[0]];
+//   return shuffledMovies;
+// }
 
 function startGame() {
   score = 0;
@@ -49,22 +47,33 @@ function startGame() {
 
 //! Function to get the daily movie
 function getNextMovie() {
-  const currentMovie = movies[getCurrentDayIndex()];
-  movieImage.src = currentMovie.image;
+  const todayStr = new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  console.log("Today's date:", todayStr);
+
+  const currentMovie = movies.find(movie => movie.date === todayStr);
+  console.log("Current movie:", currentMovie);
+
+  if (currentMovie) {
+    movieImage.src = currentMovie.image;
+    console.log("Image set to:", currentMovie.image);
+  } else {
+    console.warn("No movie found for today's date:", todayStr);
+  }
 }
 
 let remainingGuesses = 3; // Initialize remaining guesses
 
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
-  const currentMovie = movies[getCurrentDayIndex()];
+  const todayStr = new Date().toISOString().split("T")[0]; // "2025-03-28"
+  const currentMovie = movies.find(movie => movie.date === todayStr);
 
   if (!userGuess) {
     showWarningMessage();
     return;
   }
 
-  if (userGuess === currentMovie.name.toLowerCase()) {
+  if (currentMovie && userGuess === currentMovie.name.toLowerCase()) {
     movieImage.style.boxShadow = "-1px 1px 25px 14px #52ffa880";
     movieImage.style.outline = "3px solid #52ffa9";
     showResultModal("🎉 Correct! See you soon!", true);
@@ -95,7 +104,6 @@ function getCurrentDayIndex() {
   const today = new Date();
   return today.getDate() % movies.length; // Cycles through movies each day
 }
-
 
 //! Function to update the score display
 function updateScore() {
@@ -195,6 +203,5 @@ guessInput.addEventListener("keyup", (e) => {
 
 //! Start the game when the page loads
 window.onload = function () {
-  shuffleMovies();
   getNextMovie();
 };
