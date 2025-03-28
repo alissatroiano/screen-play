@@ -1,0 +1,23 @@
+[
+    {
+      "quote": "Say hello to my little friend!",
+      "movie": "Scarface",
+      "image": "../assets/scarface.jpg"
+    },
+    {
+      "quote": "I am your father.",
+      "movie": "Star Wars: The Empire Strikes Back",
+      "image": "../assets/star-wars.jpg"
+    },
+    {
+      "quote": "I'll be back.",
+      "movie": "The Terminator",
+      "image": "../assets/terminator.jpg"
+    },
+    {
+      "quote": "Why so serious?",
+      "movie": "The Dark Knight",
+      "image": "../assets/dark-knight.jpg"
+    }
+  ]
+  

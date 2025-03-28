@@ -10,13 +10,13 @@
     "date": "2025-03-29"
   },
   {
-    "name": "Halloween",
-    "image": "../assets/halloween.jpg",
+    "name": "Big Fish",
+    "image": "../assets/bigfish.jpg",
     "date": "2025-03-30"
   },
   {
-    "name": "Children of Men",
-    "image": "../assets/Children-of-Men.jpg",
+    "name": "Midsommar",
+    "image": "../assets/midsommar.jpg",
     "date": "2025-03-31"
   },
   {
@@ -28,5 +28,20 @@
     "name": "Goodfellas",
     "image": "../assets/Goodfellas.jpg",
     "date": "2025-04-02"
+  },
+  {
+  "name": "Children of Men",
+  "image": "../assets/Children-of-Men.jpg",
+  "date": "2025-04-03"
+  },
+  {
+  "name": "La La Land",
+  "image": "../assets/lalaland.jpg",
+  "date": "2025-04-04"
+  },
+  {
+  "name": "Halloween",
+  "image": "../assets/halloween.jpg",
+  "date": "2025-04-05"
   }
 ]
