@@ -36,12 +36,57 @@
   },
   {
   "name": "La La Land",
-  "image": "../assets/lalaland.jpg",
+  "image": "./assets/lalaland.jpg",
   "date": "2025-04-04"
   },
   {
   "name": "Halloween",
   "image": "../assets/halloween.jpg",
   "date": "2025-04-05"
+  },
+  {
+    "name": "Dirty Dancing",
+    "image": "../assets/dirty-dancing.jpg",
+    "date": "2025-04-06"
+    },
+    {
+      "name": "Fear and Loathing in Las Vegas",
+      "image": "../assets/fear-and-loathing.jpg",
+      "date": "2025-04-07"
+      },
+  {
+    "name": "A Night at The Roxbury",
+    "image": "../assets/roxbury.jpg",
+    "date": "2025-04-08"
+  },
+  {
+    "name": "Joker",
+    "image": "../assets/joker.jpg",
+    "date": "2025-04-09"
+  },
+  {
+    "name": "Forrest Gump",
+    "image": "../assets/forrest-gump.jpg",
+    "date": "2025-04-10"
+  },
+  {
+    "name": "The Breakfast Club",
+    "image": "../assets/breakfast-club.jpg",
+    "date": "2025-04-11"
+  },
+  {
+    "name": "The Godfather",
+    "image": "../assets/The-Godfather.jpg",
+    "date": "2025-04-12"
+  },
+  {
+    "name": "10 Things I Hate About You",
+    "image": "../assets/10-things.jpg",
+    "date": "2025-04-13"
+  },
+  {
+    "name": "Inception",
+    "image": "../assets/inception.png",
+    "date": "2025-04-14"
   }
 ]
