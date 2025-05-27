@@ -48,7 +48,7 @@ function getNextQuote() {
   console.log("Today's quote found:", todayQuote); // ✅ Check what quote is matched
 
   if (todayQuote) {
-    movieQuote.innerHTML = `<p>${todayQuote.quote}</p>`;
+    movieQuote.innerHTML = `<p>"${todayQuote.quote}"</p>`;
   } else {
     movieQuote.innerHTML = `<p>No quote found for today.</p>`;
   }

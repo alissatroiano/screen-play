@@ -2,12 +2,51 @@
     {
       "movie": "Scarface",
       "quote": "Say hello to my little friend!",
-      "date": "2025-05-27"
+      "date": "2025-05-26"
     },
     {
       "movie": "Star Wars: The Empire Strikes Back",
       "quote": "I am your father.",
       "date": "2025-05-28"
+    },
+    {
+      "movie": "The Godfather",
+      "quote": "I'm gonna make him an offer he can't refuse.",
+      "date": "2025-05-29"
+    },
+    {"movie": "Pulp Fiction",
+      "quote": "Say what again!",
+      "date": "2025-05-27"
+    },
+    {
+      "movie": "The Matrix",
+      "quote": "There is no spoon.",
+      "date": "2025-05-31"
+    },
+    {
+      "movie": "Forrest Gump",
+      "quote": "Life is like a box of chocolates.",
+      "date": "2025-06-01"
+    },
+    {
+      "movie": "Inception",
+      "quote": "You mustn't be afraid to dream a little bigger, darling.",
+      "date": "2025-06-02"
+    },
+    {
+      "movie": "Fight Club",
+      "quote": "The first rule of Fight Club is: You do not talk about Fight Club.",
+      "date": "2025-06-03"
+    },
+    {
+      "movie": "The Silence of the Lambs",
+      "quote": "I ate his liver with some fava beans and a nice Chianti.",
+      "date": "2025-06-04"
+    },
+    {
+      "movie": "Back to the Future",
+      "quote": "Roads? Where we're going, we don't need roads.",
+      "date": "2025-06-05"
     }
   ]
   

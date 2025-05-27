@@ -43,8 +43,9 @@ body {
   margin: 10px;
 }
 
+.quote-container h1,
 .game-container h1 {
-  font-family: "Merienda", cursive;
+  font-family: "Nunito", sans-serif;
   color: var(--primary-clr);
   line-height: 1.2;
   background-clip: text;
@@ -55,10 +56,9 @@ body {
 
 .quote-box {
   color: var(--light-color);
-  font-family: "Covered By Your Grace", cursive;
+  font-family: "Merienda", cursive;
   font-weight: 400;
   font-style: normal;
-
   margin-bottom: 20px;
   font-size: 1.2rem;
 }
@@ -74,8 +74,13 @@ p.subtitle {
   font-size: 14px;
   margin: 10px auto;
   font-family: "Nunito", sans-serif;
+}
 
-  margin-top: 10px;
+.input-text {
+  color: var(--light-grey);
+  font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 12px;
 }
 
 #score {
@@ -173,7 +178,16 @@ h1 {
 .submit-btn {
   top: 3px;
   right: 3px;
-  font-size: 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 1.25px;
+  max-width: fit-content;
+  font-family: 'Nunito', sans-serif;
+  border: none;
+  background-color: #3c1164;
+  padding: 5px 20px;
+  margin: 15px auto;
 }
 
 .submit-btn:hover,
