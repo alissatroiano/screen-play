@@ -23,7 +23,8 @@ Devvit.addCustomPostType({
       const redisCount = await context.redis.get(`counter_${context.postId}`);
       return Number(redisCount ?? 0);
     });
-
+    const [directions, setDirections] = useState(0)
+    const [webviewVisible, setWebviewVisible] = useState(false);
     const webView = useWebView<WebViewMessage, DevvitMessage>({
       // URL of your web view content
       url: 'page.html',
@@ -59,49 +60,62 @@ Devvit.addCustomPostType({
         }
       },
       onUnmount() {
-        context.ui.showToast('Come Back Soon!');
+        context.ui.showToast('See ya! Come back for a new challenge tomorrow');
       },
     });
 
-  // Render the custom post type
-  return (
-    <vstack grow padding="small">
-       <hstack>
-          <image
-            url="logo.png"
-            description="logo"
-            imageHeight={256}
-            imageWidth={256}
-            height="250px"
-            width="250px"
-          />
+    // Render the custom post type
+    return (
+      <vstack grow padding="medium">
+        <vstack
+          grow={!webviewVisible}
+          height={webviewVisible ? '0%' : '100%'}
+          alignment="middle center"
+        >
+          <hstack>
+            <image
+              url="logo.png"
+              description="logo"
+              imageHeight={256}
+              imageWidth={256}
+              height="250px"
+              width="250px"
+            />
           </hstack>
           <spacer />
-                <text size="xlarge" weight="bold">
-Screen Snaps       
-</text>
-        <spacer />
-        <vstack alignment="start middle">
-          <hstack>
-            <text size="medium">Hey, </text>
-            <spacer />
-            <text size="medium" weight="bold">
-              {' '}
-              {username ?? ''}
-            </text>
+          <text size="xlarge" weight="bold">
+            Screen Snaps
+          </text>
+          <spacer />
+          <vstack alignment="center">
+            <hstack>
+              <text size="medium">Hey, </text>
+              <spacer />
+              <text size="medium" weight="bold">
+                {' '}
+                {username ?? ''}
+              </text>
             </hstack>
             <spacer />
             <spacer />
-<hstack>
-         <text size="small">How well do you know movies?</text>
-          </hstack>
-        <spacer />
+            <hstack alignment="center">
+              <text alignment="center" size="xsmall">How well do you know movies? </text>
+              </hstack>
+              <hstack>
+              <text alignment="center" size="xsmall">   Click the button below to reveal an image of a movie scene. </text>
+             </hstack>
+             <hstack>
+              <text alignment="center" size="xsmall">    Guess the movie title to solve today's challenge! </text>
+           </hstack>
+            <spacer />
+            <spacer />
+            <button size="small" icon="play-outline" onPress={() => webView.mount()}>
+         Show Scene</button>
+          </vstack>
         </vstack>
-        <spacer />
-        <button onPress={() => webView.mount()}>Reveal Movie Scene</button>
       </vstack>
-  );
-},
+    );
+  },
 });
 
 export default Devvit;
