@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Merienda:wght@300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 :root {
   --light-clr: rgb(254, 254, 254);
   --primary-clr: rgb(133, 88, 255);
   --secondary-clr: rgb(103, 63, 215);
+  --light-color: #9b82ff;
+  --light-grey: #828282;
   --transparent-primary-clr: rgba(103, 63, 215, 0.4);
 }
 
@@ -11,7 +12,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -26,6 +26,7 @@ body {
 }
 
 .game-container {
+  font-family: "Nunito", sans-serif;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -43,12 +44,23 @@ body {
 }
 
 .game-container h1 {
+  font-family: "Merienda", cursive;
   color: var(--primary-clr);
   line-height: 1.2;
   background-clip: text;
   -webkit-background-clip: text;
   background-position: 0 0;
   animation: animated-text 26s linear infinite;
+}
+
+.quote-box {
+  color: var(--light-color);
+  font-family: "Covered By Your Grace", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
 @keyframes animated-text {
@@ -59,7 +71,10 @@ body {
 
 p.subtitle {
   color: var(--light-clr);
-  font-size: 12px;
+  font-size: 14px;
+  margin: 10px auto;
+  font-family: "Nunito", sans-serif;
+
   margin-top: 10px;
 }
 
@@ -85,12 +100,11 @@ h1 {
 
 #movieImage {
   max-width: 100%;
-  min-height: 50vh;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 20px;
-  margin:  20px 50px;
-  outline:2px dotted var(--primary-clr);
+  margin: 20px 50px;
+  outline: .758px dotted var(--primary-clr);
   outline-offset: 5px;
 }
 
@@ -143,7 +157,7 @@ h1 {
   flex-shrink: 0;
   font-size: 14px;
   font-weight: 500;
-  padding:5px 10px;
+  padding: 5px 10px;
   margin: 10px auto;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
@@ -169,7 +183,8 @@ h1 {
   background-color: linear-gradient(
     45deg,
     rgb(83, 108, 199) 15%,
-    rgb(103, 63, 215) 80%);
+    rgb(103, 63, 215) 80%
+  );
 }
 
 .modal {
@@ -247,6 +262,4 @@ h1 {
   .modal-content .message {
     font-size: 14px;
   }
-
-
 }
