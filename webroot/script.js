@@ -47,7 +47,8 @@ function startGame() {
 
 //! Function to get the daily movie
 function getNextMovie() {
-  const todayStr = new Date().toISOString().split("T")[0]; // "YYYY-MM-DD"
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   console.log("Today's date:", todayStr);
 
   const currentMovie = movies.find(movie => movie.date === todayStr);
