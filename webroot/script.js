@@ -66,7 +66,9 @@ let remainingGuesses = 3; // Initialize remaining guesses
 
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
-  const todayStr = new Date().toISOString().split("T")[0]; // "2025-03-28"
+  const today = new Date();
+
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   const currentMovie = movies.find(movie => movie.date === todayStr);
 
   if (!userGuess) {
