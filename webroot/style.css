@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Merienda:wght@300..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Covered+By+Your+Grace&family=Just+Another+Hand&family=Just+Me+Again+Down+Here&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root {
   --light-clr: rgb(254, 254, 254);
   --primary-clr: rgb(133, 88, 255);
@@ -56,11 +57,12 @@ body {
 
 .quote-box {
   color: var(--light-color);
-  font-family: "Merienda", cursive;
-  font-weight: 400;
+  font-family: "Just Me Again Down Here", cursive;
+  font-weight: 500;
   font-style: normal;
+  letter-spacing: 1.25px;
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 2.25rem;
 }
 
 @keyframes animated-text {
@@ -80,20 +82,15 @@ p.subtitle {
   color: var(--light-grey);
   font-size: 14px;
   font-family: "Nunito", sans-serif;
-  margin-bottom: 12px;
+  margin-bottom: 19px;
 }
 
-#score {
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  color: var(--light-clr);
-  padding: 10px 16px;
-  box-shadow: -1px 1px 25px 14px var(--transparent-primary-clr);
-  background-color: var(--primary-clr);
-  user-select: none;
+p#scoreBoard{
+  font-size: 1rem;
+  color: var(--light-color);
+  font-family: "Just Me Again Down Here", cursive;
+  margin-top: 12px;
+  margin-left: 5px;
 }
 
 h1 {
@@ -104,11 +101,12 @@ h1 {
 }
 
 #movieImage {
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 20px;
-  margin: 20px 50px;
+  margin: 20px auto;
   outline: .758px dotted var(--primary-clr);
   outline-offset: 5px;
 }
@@ -130,6 +128,7 @@ h1 {
   font-size: 14px;
   color: var(--light-clr);
   margin-right: 10px;
+  margin-bottom: 20px;
 }
 
 .input-box input:focus {
@@ -160,10 +159,7 @@ h1 {
   outline: 0;
   color: var(--light-clr);
   flex-shrink: 0;
-  font-size: 14px;
   font-weight: 500;
-  padding: 5px 10px;
-  margin: 10px auto;
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
   transition: all 0.5s;
@@ -176,8 +172,6 @@ h1 {
 }
 
 .submit-btn {
-  top: 3px;
-  right: 3px;
   font-size: 1rem;
   text-transform: uppercase;
   font-weight: 200;
@@ -192,13 +186,10 @@ h1 {
 
 .submit-btn:hover,
 .btn:hover {
-  box-shadow: rgba(80, 63, 205, 0.7) 0 2px 30px;
-  transform: scale(0.98);
-  background-color: linear-gradient(
-    45deg,
-    rgb(83, 108, 199) 15%,
-    rgb(103, 63, 215) 80%
-  );
+background-color: #0b0116;
+opacity: ;
+  transform: scale(0.98) translateY(-2px);
+  transition-duration: box-shadow 0.2s linear, transform 0.3s linear; s
 }
 
 .modal {
