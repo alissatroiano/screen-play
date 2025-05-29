@@ -5,73 +5,93 @@
     "date": "2025-05-27"
   },
   {
-    "name": "Trainspotting",
-    "image": "../assets/trainspotting.png",
+    "name": "School of Rock",
+    "image": "../assets/school-of-rock.jpg",
     "date": "2025-05-28"
   },
   {
-    "name": "Big Fish",
-    "image": "../assets/big-fish.jpg",
+    "name": "Insomnia",
+    "image": "../assets/insomnia.jpg",
     "date": "2025-05-29"
+  },
+  {
+    "name": "Cloverfield",
+    "image": "../assets/cloverfield.png",
+    "date": "2025-05-30"
+  },
+  {
+    "name": "Requiem for a Dream",
+    "image": "../assets/requiem.jpg",
+    "date": "2025-05-31"
+  },
+  {
+    "name": "Gosford Park",
+    "image": "../assets/gosford-park.jpg",
+    "date": "2025-06-01"
+  },
+  {
+    "name": "The Lighthouse",
+    "image": "../assets/lighthouse.png",
+    "date": "2025-06-02"
+  },
+  {
+    "name": "The Killing of a Sacred Deer",
+    "image": "../assets/sacred-deer.png",
+    "date": "2025-06-03"
+  },
+  {
+    "name": "Into The Forest",
+    "image": "../assets/into-the-forest.jpg",
+    "date": "2025-06-04"
+  },
+  {
+    "name": "Moonlight",
+    "image": "../assets/moonlight.png",
+    "date": "2025-06-05"
+  },
+  {
+    "name": "The Disaster Artist",
+    "image": "../assets/disaster-artist.png",
+    "date": "2025-06-06"
+  },
+  {
+    "name": "The Witch",
+    "image": "../assets/a24-the-witch.jpg",
+    "date": "2025-06-07"
   },
   {
     "name": "Midsommar",
     "image": "../assets/midsommar.jpg",
-    "date": "2025-05-30"
+    "date": "2025-06-08"
   },
   {
-    "name": "The Dark Knight",
-    "image": "../assets/dark-knight.jpg",
-    "date": "2025-05-31"
+    "name": "The Lobster",
+    "image": "../assets/a24-the-lobster.png",
+    "date": "2025-06-09"
   },
   {
-    "name": "Goodfellas",
-    "image": "../assets/Goodfellas.jpg",
-    "date": "2025-06-01"
+    "name": "Monty Python and the Holy Grail",
+    "image": "../assets/monty-python.jpg",
+    "date": "2025-06-10"
   },
   {
-  "name": "Children of Men",
-  "image": "../assets/Children-of-Men.jpg",
-  "date": "2025-06-02"
+    "name": "The Shawshank Redemption",
+    "image": "../assets/shawshank.jpg",
+    "date": "2025-06-11"
   },
   {
-  "name": "La La Land",
-  "image": "../assets/lalaland.jpg",
-  "date": "2025-06-03"
+    "name": "Crazy Stupid Love",
+    "image": "../assets/crazy-stupid-love.png",
+    "date": "2025-06-12"
   },
   {
-  "name": "Halloween",
-  "image": "../assets/halloween.jpg",
-  "date": "2025-06-04"
-},
-{
-  "name": "Joker",
-  "image": "../assets/joker.jpg",
-  "date": "2025-06-05"
-},
-{
-  "name": "A Night at The Roxbury",
-  "image": "../assets/roxbury.jpg",
-  "date": "2025-06-06"
-},
-{
-  "name": "Dirty Dancing",
-  "image": "../assets/dirty-dancing.jpg",
-  "date": "2025-06-07"
-},
-{
-  "name": "The Shawshank Redemption",
-  "image": "../assets/shawshank.jpg",
-  "date": "2025-06-08"
-},
-{
-  "name": "Insomnia",
-  "image": "../assets/insomnia.jpg",
-  "date": "2025-06-09"
-},
-{
-  "name": "Monty Python and the Holy Grail",
-  "image": "../assets/monty-python.jpg",
-  "date": "2025-06-10"
-}
+    "name": "Inception",
+    "image": "../assets/inception.jpg",
+    "date": "2025-06-13"
+  },
+  {
+    "name": "Interstellar",
+    "image": "../assets/interstellar.jpg",
+    "date": "2025-06-14"
+  }
 ]
