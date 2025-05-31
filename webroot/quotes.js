@@ -2,11 +2,9 @@ const modal = document.getElementById("gameOverModal");
 const guessInput = document.getElementById("guessInput");
 const movieQuote = document.getElementById("movieQuote");
 const modalContent = document.querySelector(".modal-content");
-const scoreBoard = document.getElementById("scoreBoard");
+const warningMessage = document.getElementById("warningMessage");
 
 let quotes = [];
-let score = 0;
-let remainingGuesses = 3;
 
 fetch("quotes.json")
   .then((response) => response.json())
@@ -26,25 +24,23 @@ function shuffleQuotes() {
 }
 
 function startGame() {
-  updateScoreDisplay();
+  currentQuoteIndex = 0;
   getNextQuote();
 }
 
-
-function updateScoreDisplay() {
-  scoreBoard.textContent = `Score: ${score}`;
-}
-
 function getTodayQuote() {
-  const todayStr = new Date().toISOString().split("T")[0];
+  const today = new Date();
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+
   return quotes.find((quote) => quote.date === todayStr);
 }
 
+let todayQuote = null;
 function getNextQuote() {
   const todayStr = new Date().toISOString().split("T")[0];
   console.log("Today's date:", todayStr); // ✅ See what date we are matching
 
-  const todayQuote = quotes.find((quote) => quote.date === todayStr);
+  todayQuote = quotes.find((quote) => quote.date === todayStr);
   console.log("Today's quote found:", todayQuote); // ✅ Check what quote is matched
 
   if (todayQuote) {
@@ -54,29 +50,30 @@ function getNextQuote() {
   }
 }
 
+let remainingGuesses = 3;
 function checkGuess() {
   const userGuess = guessInput.value.trim().toLowerCase();
   const todayQuote = getTodayQuote();
 
-  if (!todayQuote || !userGuess) {
+  if (!userGuess) {
     showWarningMessage();
     return;
   }
 
-  if (userGuess === todayQuote.movie.toLowerCase()) {
-    this.score = 1;
-    score = this.score;
-    updateScoreDisplay();
-    showResultModal("🎉 Correct! See you soon!", true);
-    remainingGuesses = 3;
+  if (todayQuote && userGuess === todayQuote.movie.toLowerCase()) {
+    showResultModal("You're a movie whiz! Come back tomorrow for a new quote! 📽️", true);
+    remainingGuesses = 3; // Reset for the next round
   } else {
     remainingGuesses--;
-
+    guessInput.value = ""; // Clear the input field
+    warningMessage.style.display = "none"; // Hide warning message if it was shown
+    guessInput.focus(); // Focus back on the input field
+    
     if (remainingGuesses > 0) {
       showResultModal(`❌ Wrong! ${remainingGuesses} guesses left!`, false);
     } else {
       showGameOverModal();
-      remainingGuesses = 3;
+      remainingGuesses = 3; // Reset for next game
     }
   }
 }
@@ -99,7 +96,9 @@ function focusOnInput() {
 }
 
 function showWarningMessage() {
-  alert("Please enter your guess before submitting.");
+  warningMessage.style.display = "block";
+  warningMessage.classList.add("warning");
+  warningMessage.textContent = "Enter a movie title, silly 👀";
 }
 
 function showResultModal(message, isCorrect) {
@@ -109,8 +108,12 @@ function showResultModal(message, isCorrect) {
 }
 
 function showGameOverModal() {
-  modal.style.display = "block";
-  modalContent.innerHTML = `<h2>Game Over</h2><p>Your score: ${score}</p>`;
-  guessInput.disabled = true;
-}
+  let answerTxt = todayQuote ? todayQuote.movie : "Unknown";
 
+  modalContent.innerHTML = `
+    <p class="message">Game Over! 😔</p>
+    <p>The correct answer was: <strong>${answerTxt}</strong></p>
+  `;
+  modal.style.display = "flex";
+  document.addEventListener("keyup", closeModalOnEnter);
+}

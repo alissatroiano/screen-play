@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <title>Screen Snaps</title>
   </head>
+
 <body>
      <div class="quote-container">
       <h1>Screen Snaps</h1>
@@ -18,13 +19,9 @@
         <p></p>
         <br>
  
-      <div id="gameOverModal">
-        <div class="modal-content">
-        <p class="message" id="message"></p>
-      </div>
-      </div>
     </div>
-   <p class="input-text">Enter your guess below:</p>
+ 
+   <p class="subtitle">Enter your guess below:</p>
       <div class="input-box">
         <input type="text" id="guessInput" placeholder="Enter movie title guesses here!" />
         <button onclick="checkGuess()" class="submit-btn btn" role="button" id="checkGuess">
@@ -34,8 +31,15 @@
 
       <div class="result-box">
         <p class="scoreText" id="scoreBoard"></p> </p>        
+        <p class="message" id="warningMessage"></p>
       </div>
-      
+
+         <div id="gameOverModal">
+        <div class="modal-content">
+        <p class="message" id="message"></p>
+      </div>
+      </div>
+
         <script type="application/javascript" src="quotes.js"></script>
 
     </body>

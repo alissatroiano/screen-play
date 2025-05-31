@@ -45,22 +45,26 @@ function startGame() {
   getNextMovie();
 }
 
+let currentMovie = null;
 //! Function to get the daily movie
 function getNextMovie() {
   const today = new Date();
   const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   console.log("Today's date:", todayStr);
 
-  const currentMovie = movies.find(movie => movie.date === todayStr);
-  console.log("Current movie:", currentMovie);
+  currentMovie = movies.find(movie => movie.date === todayStr);
+  let movieName = currentMovie?.name;
+  console.log("Current movie:", movieName);
 
   if (currentMovie) {
     movieImage.src = currentMovie.image;
     console.log("Image set to:", currentMovie.image);
   } else {
     console.warn("No movie found for today's date:", todayStr);
+    // Optionally show a fallback image or disable gameplay
   }
 }
+
 
 let remainingGuesses = 3; // Initialize remaining guesses
 
@@ -125,10 +129,11 @@ function showWarningMessage() {
 
 //! Function to show the game over modal
 function showGameOverModal() {
+  let answerText = currentMovie ? currentMovie.name : "Unknown";
+  
   modalContent.innerHTML = `
     <p class="message">Game Over! 😔</p>
-    <p>The correct answer was: <strong>${movies[getCurrentDayIndex()].name}</strong></p>
-  
+    <p>The correct answer was: <strong>${answerText}</strong></p>
   `;
   modal.style.display = "flex";
   document.addEventListener("keyup", closeModalOnEnter);
