@@ -3,5 +3,5 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["./src/**/*", "webroot/game.js"]
+  "include": ["./src/**/*", "webroot/script.js"]
 }
