@@ -23,24 +23,23 @@
  
    <p class="subtitle">Enter your guess below:</p>
       <div class="input-box">
-        <input type="text" id="guessInput" placeholder="Enter movie title guesses here!" />
-        <button onclick="checkGuess()" class="submit-btn btn" role="button" id="checkGuess">
+        <input type="text" id="quoteInput" placeholder="Enter movie title guesses here!" />
+        <button onclick="checkQuote()" class="submit-btn btn" role="button" id="checkQuote">
           Submit
         </button>
       </div>
 
       <div class="result-box">
-        <p class="scoreText" id="scoreBoard"></p> </p>        
+        <p class="guessesLeft" id="guessesLeft"></p> </p>        
         <p class="message" id="warningMessage"></p>
       </div>
 
-         <div id="gameOverModal">
+         <div id="youLoseModal">
         <div class="modal-content">
         <p class="message" id="message"></p>
       </div>
       </div>
 
         <script type="application/javascript" src="quotes.js"></script>
-
     </body>
 </html>

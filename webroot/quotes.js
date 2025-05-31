@@ -1,5 +1,5 @@
-const modal = document.getElementById("gameOverModal");
-const guessInput = document.getElementById("guessInput");
+const modal = document.getElementById("youLoseModal");
+const quoteInput = document.getElementById("quoteInput");
 const movieQuote = document.getElementById("movieQuote");
 const modalContent = document.querySelector(".modal-content");
 const warningMessage = document.getElementById("warningMessage");
@@ -51,8 +51,8 @@ function getNextQuote() {
 }
 
 let remainingGuesses = 3;
-function checkGuess() {
-  const userGuess = guessInput.value.trim().toLowerCase();
+function checkQuote() {
+  const userGuess = quoteInput.value.trim().toLowerCase();
   const todayQuote = getTodayQuote();
 
   if (!userGuess) {
@@ -61,38 +61,37 @@ function checkGuess() {
   }
 
   if (todayQuote && userGuess === todayQuote.movie.toLowerCase()) {
-    showResultModal("You're a movie whiz! Come back tomorrow for a new quote! 📽️", true);
+    showResultModal("You're a whiz! Come back tomorrow for a new quote! 📽️", true);
     remainingGuesses = 3; // Reset for the next round
   } else {
     remainingGuesses--;
-    guessInput.value = ""; // Clear the input field
+    quoteInput.value = ""; // Clear the input field
     warningMessage.style.display = "none"; // Hide warning message if it was shown
-    guessInput.focus(); // Focus back on the input field
+    quoteInput.focus(); // Focus back on the input field
     
     if (remainingGuesses > 0) {
       showResultModal(`❌ Wrong! ${remainingGuesses} guesses left!`, false);
     } else {
-      showGameOverModal();
+      showYouLoseModal();
       remainingGuesses = 3; // Reset for next game
     }
   }
 }
 
-
 //! Event listener for the Enter key to automatically check the guess
 document.addEventListener("keyup", function (e) {
   if (e.key === "Enter" && modal.style.display !== "flex") {
-    checkGuess();
+    checkQuote();
   }
 });
 
-// attach checkGuess function to guessBtn
-const guessBtn = document.getElementById("checkGuess");
-guessBtn.addEventListener("click", checkGuess);
+// attach checkQuote function to guessBtn
+const guessBtn = document.getElementById("checkQuote");
+guessBtn.addEventListener("click", checkQuote);
 
 //! Function to focus on input
 function focusOnInput() {
-  guessInput.focus();
+  quoteInput.focus();
 }
 
 function showWarningMessage() {
@@ -104,14 +103,14 @@ function showWarningMessage() {
 function showResultModal(message, isCorrect) {
   modal.style.display = "block";
   modalContent.innerHTML = `<h2>${message}</h2>`;
-  if (isCorrect) guessInput.disabled = true;
+  if (isCorrect) quoteInput.disabled = true;
 }
 
-function showGameOverModal() {
+function showYouLoseModal() {
   let answerTxt = todayQuote ? todayQuote.movie : "Unknown";
 
   modalContent.innerHTML = `
-    <p class="message">Game Over! 😔</p>
+    <p class="quote-message">Game Over! 😔</p>
     <p>The correct answer was: <strong>${answerTxt}</strong></p>
   `;
   modal.style.display = "flex";

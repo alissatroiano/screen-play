@@ -67,8 +67,8 @@ function getNextMovie() {
 
 
 let remainingGuesses = 3; // Initialize remaining guesses
-
 function checkGuess() {
+  
   const userGuess = guessInput.value.trim().toLowerCase();
   const today = new Date();
 
@@ -100,7 +100,7 @@ function checkGuess() {
 }
 
 //! Function to show result modal and end game
-function showResultModal(message, won) {
+function showResultModal(message) {
   modalContent.innerHTML = `
     <p class="message">${message}</p>
   `;
