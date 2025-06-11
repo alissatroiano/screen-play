@@ -73,5 +73,10 @@
   "name": "Monty Python and the Holy Grail",
   "image": "../assets/monty-python.jpg",
   "date": "2025-06-10"
+},
+{
+"name": "Monty Python and the Holy Grail",
+  "image": "../assets/monty-python.jpg",
+  "date": "2025-06-11"
 }
 ]
