@@ -69,9 +69,39 @@
   "image": "../assets/hereditary.png",
   "date": "2025-06-09"
 },
-{
-  "name": "Monty Python and the Holy Grail",
-  "image": "../assets/monty-python.jpg",
+  {
+  "name": "The Adderall Diaries",
+  "image": "../assets/adderall-diaries.jpg",
   "date": "2025-06-10"
+  },
+{
+  "name": "Pulp Fiction",
+  "image": "../assets/pulp-fiction-1.png",
+  "date": "2025-06-11"
+},
+{
+  "name": "The Adderall Diaries",
+  "image": "../assets/adderall-diaries.jpg",
+  "date": "2025-06-12"
+},
+{
+  "name": "Cloverfield",
+  "image": "../assets/cloverfield.png",
+  "date": "2025-06-13"
+},
+{
+  "name": "The Shawshank Redemption",
+  "image": "../assets/shawshank.jpg",
+  "date": "2025-06-14"
+},
+{
+  "name": "Primal Fear",
+  "image": "../assets/primal-fear-1.jpeg",
+  "date": "2025-06-15"
+},
+{
+  "name": "The Green Knight",
+  "image": "../assets/green-knight.jpg",
+  "date": "2025-06-16"
 }
 ]
