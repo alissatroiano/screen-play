@@ -30,78 +30,94 @@
     "date": "2025-06-01"
   },
   {
-  "name": "The Witch",
-  "image": "../assets/a24-the-witch.jpg",
-  "date": "2025-06-02"
+    "name": "The Witch",
+    "image": "../assets/a24-the-witch.jpg",
+    "date": "2025-06-02"
   },
   {
-  "name": "The Lobster",
-  "image": "../assets/a24-the-lobster.png",
-  "date": "2025-06-03"
+    "name": "The Lobster",
+    "image": "../assets/a24-the-lobster.png",
+    "date": "2025-06-03"
   },
   {
-  "name": "Into The Forest",
-  "image": "../assets/into-the-forest.jpg",
-  "date": "2025-06-04"
-},
-{
-  "name": "Moonlight",
-  "image": "../assets/moonlight.png",
-  "date": "2025-06-05"
-},
-{
-  "name": "The Disaster Artist",
-  "image": "../assets/disaster-artist.png",
-  "date": "2025-06-06"
-},
-{
-  "name": "The Lighthouse",
-  "image": "../assets/the-lighthouse.png",
-  "date": "2025-06-07"
-},
-{
-  "name": "The Killing of a Sacred Deer",
-  "image": "../assets/sacred-deer.png",
-  "date": "2025-06-08"
-},
-{
-  "name": "Hereditary",
-  "image": "../assets/hereditary.png",
-  "date": "2025-06-09"
-},
-  {
-  "name": "The Adderall Diaries",
-  "image": "../assets/adderall-diaries.jpg",
-  "date": "2025-06-10"
+    "name": "Into The Forest",
+    "image": "../assets/into-the-forest.jpg",
+    "date": "2025-06-04"
   },
-{
-  "name": "Pulp Fiction",
-  "image": "../assets/pulp-fiction-1.png",
-  "date": "2025-06-11"
-},
-{
-  "name": "The Adderall Diaries",
-  "image": "../assets/adderall-diaries.jpg",
-  "date": "2025-06-12"
-},
-{
-  "name": "Cloverfield",
-  "image": "../assets/cloverfield.png",
-  "date": "2025-06-13"
-},
-{
-  "name": "The Shawshank Redemption",
-  "image": "../assets/shawshank.jpg",
-  "date": "2025-06-14"
-},
-{
-  "name": "Primal Fear",
-  "image": "../assets/primal-fear-1.jpeg",
-  "date": "2025-06-15"
-},
-{
-  "name": "The Green Knight",
-  "image": "../assets/green-knight.jpg",
-  "date": "2025-06-16"
-}
+  {
+    "name": "Moonlight",
+    "image": "../assets/moonlight.png",
+    "date": "2025-06-05"
+  },
+  {
+    "name": "The Disaster Artist",
+    "image": "../assets/disaster-artist.png",
+    "date": "2025-06-06"
+  },
+  {
+    "name": "The Lighthouse",
+    "image": "../assets/the-lighthouse.png",
+    "date": "2025-06-07"
+  },
+  {
+    "name": "The Killing of a Sacred Deer",
+    "image": "../assets/sacred-deer.png",
+    "date": "2025-06-08"
+  },
+  {
+    "name": "Hereditary",
+    "image": "../assets/hereditary.png",
+    "date": "2025-06-09"
+  },
+  {
+    "name": "The Adderall Diaries",
+    "image": "../assets/adderall-diaries.jpg",
+    "date": "2025-06-10"
+  },
+  {
+    "name": "Pulp Fiction",
+    "image": "../assets/pulp-fiction-1.png",
+    "date": "2025-06-11"
+  },
+  {
+    "name": "The Adderall Diaries",
+    "image": "../assets/adderall-diaries.jpg",
+    "date": "2025-06-12"
+  },
+  {
+    "name": "Cloverfield",
+    "image": "../assets/cloverfield.png",
+    "date": "2025-06-13"
+  },
+  {
+    "name": "The Shawshank Redemption",
+    "image": "../assets/shawshank.jpg",
+    "date": "2025-06-14"
+  },
+  {
+    "name": "Primal Fear",
+    "image": "../assets/primal-fear-1.jpeg",
+    "date": "2025-06-17"
+  },
+  {
+    "name": "Kill Bill: Volume 1",
+    "image": "../assets/kill-bill-vol-1.jpg",
+    "date": "2025-06-18"
+  },
+  {
+    "name": "The Wizard of Oz",
+    "image": "../assets/the-wizard-of-oz.png",
+    "date": "2025-06-19"
+  },
+  {
+    "name": "Once Upon a Time in Hollywood",
+    "image": "../assets/once-upon-a-time-in-hollywood.png",
+    "date": "2025-06-20"
+  },
+  {
+    "name": "Dune",
+    "image": "../assets/dune.png",
+    "date": "2025-06-21"
+  },
+  {}
 ]
