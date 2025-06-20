@@ -111,7 +111,7 @@
   },
   {
     "name": "Once Upon a Time in Hollywood",
-    "image": "../assets/once-upon-a-time-in-hollywood.png",
+    "image": "../assets/once-upon-a-time.png",
     "date": "2025-06-20"
   },
   {
@@ -119,5 +119,89 @@
     "image": "../assets/dune.png",
     "date": "2025-06-21"
   },
-  {}
+  {
+    "name": "Alien",
+    "image": "../assets/alien.jpg",
+    "date": "2025-06-22"
+  },
+  {
+    "name": "The Matrix",
+    "image": "../assets/the-matrix.png",
+    "date": "2025-06-23"
+  },
+  {
+    "name": "Psycho",
+    "image": "../assets/psycho.jpg",
+    "date": "2025-06-24"
+  },
+  {
+    "name": "The Silence of the Lambs",
+    "image": "../assets/silence-of-the-lambs.jpg",
+    "date": "2025-06-25"
+  },
+  {
+    "name": "The Prestige",
+    "image": "../assets/the-prestige.png",
+    "date": "2025-06-26"
+  },
+  {
+    "name": "Twister",
+    "image": "../assets/twister.jpg",
+    "date": "2025-06-27"
+  },
+  {
+    "name": "Casablanca",
+    "image": "../assets/casablanca.jpg",
+    "date": "2025-06-28"
+  },
+  {
+    "name": "A Clockwork Orange",
+    "image": "../assets/a-clockwork-orange.jpg",
+    "date": "2025-06-29"
+  },
+  {
+    "name": "V For Vendetta",
+    "image": "../assets/vendetta.png",
+    "date": "2025-06-30"
+  },
+  {
+    "name": "Stand By Me",
+    "image": "../assets/stand-by-me.jpg", 
+    "date": "2025-07-01"
+  },
+  {
+    "name": "My Girl",
+    "image": "../assets/my-girl.jpg",
+    "date": "2025-07-02"
+  },
+  {
+    "name": "The Sandlot",
+    "image": "../assets/the-sandlot.jpg",
+    "date": "2025-07-03"
+  },
+  {
+    "name": "The Goonies",
+    "image": "../assets/the-goonies.jpg",
+    "date": "2025-07-04"
+  },
+  {
+    "name": "Clueless",
+    "image": "../assets/clueless.png",
+    "date": "2025-07-05"
+  },
+  {
+    "name": "Ferris Bueller's Day Off",
+    "image": "../assets/ferris-bueller.jpg",
+    "date": "2025-07-06"
+  },
+  {
+    "name": "Don't Tell Mom the Babysitter's Dead",
+    "image": "../assets/dont-tell-mom.jpg",
+    "date": "2025-07-07"
+  },
+  {
+    "name": "Adventures in Babysitting",
+    "image": "../assets/adventures-in-babysitting.jpg",
+    "date": "2025-07-08"
+  }
 ]
